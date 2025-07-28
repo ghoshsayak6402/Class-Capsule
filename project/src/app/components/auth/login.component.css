@@ -1,0 +1,95 @@
+/* Container for the entire auth page (e.g., login/register) */
+.auth-container {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Gradient background */
+  padding: var(--spacing-4); /* Outer padding */
+}
+
+/* Card that contains the login/register form */
+.auth-card {
+  width: 100%;
+  max-width: 400px; /* Limit width */
+  padding: var(--spacing-6); /* Inner spacing */
+}
+
+/* Header section inside the auth card */
+.auth-header {
+  text-align: center; /* Center text */
+  margin-bottom: var(--spacing-6);
+}
+
+/* Logo container (icon + text) */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3); /* Space between icon and text */
+  margin-bottom: var(--spacing-4);
+}
+
+/* Icon part of the logo */
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Gradient icon background */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* White icon text */
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Text part of the logo */
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-800); /* Dark color */
+}
+
+/* Auth form title */
+.auth-header h2 {
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Auth form subtitle/description */
+.auth-header p {
+  color: var(--neutral-600); /* Muted color */
+  margin: 0;
+}
+
+/* Utility class to make form inputs/buttons take full width */
+.full-width {
+  width: 100%;
+  margin-bottom: var(--spacing-4);
+}
+
+/* Primary button styling */
+.auth-button {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--spacing-4);
+}
+
+/* Footer section below the auth form */
+.auth-footer {
+  text-align: center;
+  width: 100%;
+}
+
+/* Footer text styling */
+.auth-footer p {
+  margin: 0;
+  color: var(--neutral-600); /* Light gray text */
+}
+
+/* Spinner used in the button or loader */
+mat-spinner {
+  margin-right: var(--spacing-2); /* Space between spinner and text */
+}

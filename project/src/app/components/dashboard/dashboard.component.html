@@ -1,0 +1,112 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1>{{getDashboardTitle()}}</h1>
+    <p>{{getDashboardSubtitle()}}</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card animate-fade-in">
+      <div class="stat-content">
+        <div class="stat-value">{{ totalCourses }}</div>
+        <div class="stat-label">Active Courses</div>
+      </div>
+      <div class="stat-icon courses">📚</div>
+    </div>
+
+    <div class="stat-card animate-fade-in">
+      <div class="stat-content">
+        <div class="stat-value">{{ totalStudents }}</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+      <div class="stat-icon students">👥</div>
+    </div>
+
+    <div class="stat-card animate-fade-in">
+      <div class="stat-content">
+        <div class="stat-value">{{ pendingAssignments }}</div>
+        <div class="stat-label">Pending Assignments</div>
+      </div>
+      <div class="stat-icon assignments">📝</div>
+    </div>
+
+    <div class="stat-card animate-fade-in">
+      <div class="stat-content">
+        <div class="stat-value">{{ averageProgress }}%</div>
+        <div class="stat-label">Average Progress</div>
+      </div>
+      <div class="stat-icon progress">📊</div>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="courses-section">
+      <div class="section-header">
+        <h2>Your Courses</h2>
+        <button mat-raised-button color="primary">
+          <mat-icon>visibility</mat-icon>
+          View All
+        </button>
+      </div>
+      <div class="courses-grid">
+        <mat-card *ngFor="let course of courses.slice(0, 4)" class="course-card animate-fade-in">
+          <div class="course-header">
+            <div class="course-color" [style.background-color]="course.color"></div>
+            <div class="course-info">
+              <h3>{{ course.title }}</h3>
+              <p>{{ course.instructor }}</p>
+            </div>
+          </div>
+          <div class="course-stats">
+            <div class="stat">
+              <span class="stat-number">{{ course.studentsCount }}</span>
+              <span class="stat-text">Students</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">{{ course.assignments }}</span>
+              <span class="stat-text">Assignments</span>
+            </div>
+          </div>
+          <div class="progress-section">
+            <div class="progress-label">
+              <span>Progress</span>
+              <span>{{ course.progress }}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width.%]="course.progress" [style.background-color]="course.color"></div>
+            </div>
+          </div>
+          <div *ngIf="course.nextClass" class="next-class">
+            <span class="next-class-label">Next Class:</span>
+            <span class="next-class-time">{{ formatNextClass(course.nextClass) }}</span>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="assignments-section">
+      <div class="section-header">
+        <h2>Recent Assignments</h2>
+        <button mat-stroked-button color="primary">
+          <mat-icon>assignment</mat-icon>
+          View All
+        </button>
+      </div>
+      <div class="assignments-list">
+        <mat-card *ngFor="let assignment of recentAssignments" class="assignment-item animate-fade-in">
+          <div class="assignment-content">
+            <h4>{{ assignment.title }}</h4>
+            <p>{{ getCourseTitle(assignment.courseId) }}</p>
+            <div class="assignment-meta">
+              <span class="due-date">Due: {{ formatDate(assignment.dueDate) }}</span>
+              <span class="status" [class]="'status-' + assignment.status">{{ assignment.status }}</span>
+            </div>
+          </div>
+          <div *ngIf="assignment.status === 'graded'" class="assignment-grade">
+            <span class="grade-value">{{ assignment.grade }}</span>
+            <span class="grade-label">/ 100</span>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

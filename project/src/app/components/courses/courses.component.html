@@ -1,0 +1,84 @@
+<div class="courses-page">
+  <div class="page-header">
+    <div>
+      <h1>My Courses</h1>
+      <p>Manage and track your educational content</p>
+    </div>
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+      Create New Course
+    </button>
+  </div>
+
+  <div class="filters-section">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search courses</mat-label>
+      <input matInput placeholder="Search courses...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div class="filter-buttons">
+      <button mat-raised-button color="primary" class="filter-btn">All Courses</button>
+      <button mat-stroked-button color="primary" class="filter-btn">In Progress</button>
+      <button mat-stroked-button color="primary" class="filter-btn">Completed</button>
+    </div>
+  </div>
+
+  <div class="courses-grid">
+    <mat-card *ngFor="let course of courses" class="course-card animate-fade-in">
+      <div class="course-image" [style.background]="course.color">
+        <div class="course-overlay">
+          <span class="course-subject">{{ getSubjectIcon(course.title) }}</span>
+        </div>
+      </div>
+      
+      <div class="course-content">
+        <div class="course-header">
+          <h3>{{ course.title }}</h3>
+          <div class="course-menu">⋯</div>
+        </div>
+        
+        <p class="course-description">{{ course.description }}</p>
+        
+        <div class="course-instructor">
+          <span class="instructor-label">Instructor:</span>
+          <span class="instructor-name">{{ course.instructor }}</span>
+        </div>
+
+        <div class="course-stats">
+          <div class="stat">
+            <span class="stat-icon">👥</span>
+            <span>{{ course.studentsCount }} students</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">📝</span>
+            <span>{{ course.assignments }} assignments</span>
+          </div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-header">
+            <span class="progress-label">Course Progress</span>
+            <span class="progress-value">{{ course.progress }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" 
+                 [style.width.%]="course.progress" 
+                 [style.background-color]="course.color">
+            </div>
+          </div>
+        </div>
+
+        <div class="course-actions">
+          <button mat-stroked-button color="primary">
+            <mat-icon>visibility</mat-icon>
+            View Details
+          </button>
+          <button mat-raised-button color="primary">
+            <mat-icon>play_arrow</mat-icon>
+            Continue
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

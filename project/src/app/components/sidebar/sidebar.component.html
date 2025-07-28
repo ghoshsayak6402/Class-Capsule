@@ -1,0 +1,112 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-icon">CC</div>
+      <span class="logo-text">ClassCapsule</span>
+    </div>
+    <div class="theme-toggle">
+      <mat-slide-toggle 
+        [checked]="isDarkMode" 
+        (change)="toggleTheme()"
+        color="primary">
+        <mat-icon>{{isDarkMode ? 'dark_mode' : 'light_mode'}}</mat-icon>
+      </mat-slide-toggle>
+    </div>
+  </div>
+  
+  <div class="sidebar-content">
+    <div class="nav-section">
+      <h3 class="nav-section-title">Main</h3>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">📊</span>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/courses" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">📚</span>
+            Courses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/assignments" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">📝</span>
+            Assignments
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/students" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">👥</span>
+            Students
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <h3 class="nav-section-title">Tools</h3>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a routerLink="/calendar" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">📅</span>
+            Calendar
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/reports" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">📈</span>
+            Reports
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="profile-switcher">
+    <h3 class="nav-section-title">Switch Profile</h3>
+    <mat-form-field appearance="outline" class="profile-select">
+      <mat-label>View as</mat-label>
+      <mat-select [(value)]="selectedProfile" (selectionChange)="switchProfile($event.value)">
+        <mat-option value="student">
+          <div class="profile-option">
+            <span class="profile-icon">🎓</span>
+            <span>Student</span>
+          </div>
+        </mat-option>
+        <mat-option value="teacher">
+          <div class="profile-option">
+            <span class="profile-icon">👨‍🏫</span>
+            <span>Teacher</span>
+          </div>
+        </mat-option>
+        <mat-option value="administrator">
+          <div class="profile-option">
+            <span class="profile-icon">⚙️</span>
+            <span>Administrator</span>
+          </div>
+        </mat-option>
+        <mat-option value="alumni">
+          <div class="profile-option">
+            <span class="profile-icon">🎖️</span>
+            <span>Alumni</span>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="user-profile">
+      <img [src]="currentUser?.profileImage" alt="Profile" class="user-avatar" *ngIf="currentUser">
+      <div class="user-info">
+        <div class="user-name">{{currentUser?.name || 'Guest'}}</div>
+        <div class="user-role">{{getRoleDisplayName(currentUser?.role) || 'User'}}</div>
+      </div>
+      <button mat-icon-button (click)="logout()" class="logout-btn" *ngIf="currentUser">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </div>
+</nav>

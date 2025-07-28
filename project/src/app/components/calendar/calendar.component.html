@@ -1,0 +1,126 @@
+<div class="calendar-page">
+  <div class="page-header">
+    <div>
+      <h1>Academic Calendar</h1>
+      <p>Manage your schedule and important dates</p>
+    </div>
+    <div class="header-actions">
+      <button mat-stroked-button color="primary">
+        <mat-icon>today</mat-icon>
+        Today
+      </button>
+      <button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        Add Event
+      </button>
+    </div>
+  </div>
+
+  <div class="calendar-controls">
+    <div class="view-controls">
+      <button mat-raised-button color="primary" [class.active]="currentView === 'month'">Month</button>
+      <button mat-stroked-button color="primary" [class.active]="currentView === 'week'">Week</button>
+      <button mat-stroked-button color="primary" [class.active]="currentView === 'day'">Day</button>
+    </div>
+    
+    <div class="navigation-controls">
+      <button mat-icon-button (click)="previousPeriod()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <h2 class="current-period">{{ getCurrentPeriodTitle() }}</h2>
+      <button mat-icon-button (click)="nextPeriod()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+    <div class="filter-controls">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by Course</mat-label>
+        <mat-select [(value)]="selectedCourse">
+          <mat-option value="">All Courses</mat-option>
+          <mat-option *ngFor="let course of courses" [value]="course.id">
+            {{ course.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="calendar-content">
+    <div class="calendar-grid" *ngIf="currentView === 'month'">
+      <div class="calendar-header">
+        <div class="day-header" *ngFor="let day of weekDays">{{ day }}</div>
+      </div>
+      <div class="calendar-body">
+        <div class="calendar-week" *ngFor="let week of calendarWeeks">
+          <div class="calendar-day" 
+               *ngFor="let day of week" 
+               [class.other-month]="!day.isCurrentMonth"
+               [class.today]="day.isToday"
+               [class.selected]="day.isSelected">
+            <div class="day-number">{{ day.date.getDate() }}</div>
+            <div class="day-events">
+              <div class="event-item" 
+                   *ngFor="let event of day.events" 
+                   [style.background-color]="event.color"
+                   [title]="event.title + ' - ' + event.time">
+                {{ event.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-view" *ngIf="currentView === 'week'">
+      <div class="time-column">
+        <div class="time-slot" *ngFor="let hour of timeSlots">
+          {{ hour }}
+        </div>
+      </div>
+      <div class="week-days">
+        <div class="week-day" *ngFor="let day of currentWeekDays">
+          <div class="day-header">
+            <span class="day-name">{{ day.name }}</span>
+            <span class="day-date">{{ day.date.getDate() }}</span>
+          </div>
+          <div class="day-schedule">
+            <div class="event-block" 
+                 *ngFor="let event of day.events"
+                 [style.background-color]="event.color"
+                 [style.top.px]="getEventTop(event.time)"
+                 [style.height.px]="getEventHeight(event.duration)">
+              <div class="event-title">{{ event.title }}</div>
+              <div class="event-time">{{ event.time }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="upcoming-events">
+    <h3>Upcoming Events</h3>
+    <div class="events-list">
+      <mat-card *ngFor="let event of upcomingEvents" class="event-card">
+        <div class="event-indicator" [style.background-color]="event.color"></div>
+        <div class="event-details">
+          <h4>{{ event.title }}</h4>
+          <p class="event-course">{{ getCourseTitle(event.courseId) }}</p>
+          <div class="event-meta">
+            <span class="event-date">{{ formatEventDate(event.date) }}</span>
+            <span class="event-time">{{ event.time }}</span>
+          </div>
+        </div>
+        <div class="event-actions">
+          <button mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,326 @@
+/* Dashboard container with overall padding */
+.dashboard {
+  padding: var(--spacing-8);
+}
+
+/* Header section of the dashboard */
+.dashboard-header {
+  margin-bottom: var(--spacing-8);
+}
+
+/* Main title inside dashboard header */
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Subtitle inside dashboard header */
+.dashboard-header p {
+  color: var(--neutral-600);
+  font-size: 1.125rem;
+}
+
+/* Grid layout for stats cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+}
+
+/* Individual stat cards */
+.stat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-6);
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--neutral-100);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for stat cards */
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Stat value styling */
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+  line-height: 1;
+}
+
+/* Stat label */
+.stat-label {
+  color: var(--neutral-600);
+  font-weight: 500;
+  margin-top: var(--spacing-1);
+}
+
+/* Icon style inside stat card */
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* Different background colors for stat icons */
+.stat-icon.courses { background: var(--primary-100); }
+.stat-icon.students { background: var(--accent-100); }
+.stat-icon.assignments { background: var(--secondary-100); }
+.stat-icon.progress { background: var(--warning-100); }
+
+/* Layout for main content area */
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-8);
+}
+
+/* Header for each section */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+}
+
+/* Section header title */
+.section-header h2 {
+  color: var(--neutral-800);
+}
+
+/* Grid for courses section */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+}
+
+/* Course card padding override */
+.course-card {
+  padding: var(--spacing-6) !important;
+}
+
+/* Course header with color indicator */
+.course-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Vertical color stripe */
+.course-color {
+  width: 12px;
+  height: 60px;
+  border-radius: var(--radius-md);
+}
+
+/* Course title and description */
+.course-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-1);
+  color: var(--neutral-800);
+}
+
+.course-info p {
+  color: var(--neutral-600);
+}
+
+/* Stats within a course card */
+.course-stats {
+  display: flex;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Stat layout inside course card */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stat number styling */
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Stat description */
+.stat-text {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+/* Course progress section */
+.progress-section {
+  margin-bottom: var(--spacing-4);
+}
+
+/* Label and value above progress bar */
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Visual progress bar */
+.progress-bar {
+  height: 8px;
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.progress-fill {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Next class time display */
+.next-class {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+/* Label and time for next class */
+.next-class-label {
+  color: var(--neutral-600);
+}
+
+.next-class-time {
+  font-weight: 500;
+  color: var(--primary-600);
+}
+
+/* List of assignments */
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Individual assignment item */
+.assignment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-5) !important;
+}
+
+/* Assignment title and description */
+.assignment-content h4 {
+  margin-bottom: var(--spacing-1);
+  color: var(--neutral-800);
+}
+
+.assignment-content p {
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-2);
+}
+
+/* Metadata like due date and status */
+.assignment-meta {
+  display: flex;
+  gap: var(--spacing-3);
+  font-size: 0.75rem;
+}
+
+.due-date {
+  color: var(--neutral-500);
+}
+
+/* Status label styling */
+.status {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Status variations */
+.status-pending {
+  background-color: var(--warning-100);
+  color: var(--warning-700);
+}
+
+.status-submitted {
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.status-graded {
+  background-color: var(--accent-100);
+  color: var(--accent-700);
+}
+
+/* Grade display section */
+.assignment-grade {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-1);
+}
+
+.grade-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-600);
+}
+
+.grade-label {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+}
+
+/* Responsive styles for mobile view */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--spacing-4);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-4);
+  }
+
+  .stat-card {
+    padding: var(--spacing-4);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,71 @@
+<div class="assignments-page">
+  <div class="page-header">
+    <div>
+      <h1>Assignments</h1>
+      <p>Track and manage all course assignments</p>
+    </div>
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+      Create Assignment
+    </button>
+  </div>
+
+  <div class="assignments-tabs">
+    <button mat-raised-button color="primary">All Assignments</button>
+    <button mat-stroked-button color="primary">Pending</button>
+    <button mat-stroked-button color="primary">Submitted</button>
+    <button mat-stroked-button color="primary">Graded</button>
+  </div>
+
+  <div class="assignments-list">
+    <mat-card *ngFor="let assignment of assignments" class="assignment-card animate-fade-in">
+      <div class="assignment-header">
+        <div class="assignment-title">
+          <h3>{{ assignment.title }}</h3>
+          <mat-chip [style.background-color]="getCourseColor(assignment.courseId)" class="course-chip">
+            {{ getCourseTitle(assignment.courseId) }}
+          </mat-chip>
+        </div>
+        <div class="assignment-status">
+          <mat-chip [class]="'status-' + assignment.status">
+            {{ assignment.status }}
+          </mat-chip>
+        </div>
+      </div>
+
+      <div class="assignment-details">
+        <div class="detail-item">
+          <span class="detail-label">Course:</span>
+          <span class="detail-value">{{ getCourseTitle(assignment.courseId) }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Due Date:</span>
+          <span class="detail-value" [class.overdue]="isOverdue(assignment.dueDate)">
+            {{ formatDueDate(assignment.dueDate) }}
+          </span>
+        </div>
+        <div *ngIf="assignment.grade" class="detail-item">
+          <span class="detail-label">Grade:</span>
+          <span class="detail-value grade">{{ assignment.grade }}/100</span>
+        </div>
+      </div>
+
+      <div class="assignment-actions">
+        <button *ngIf="assignment.status === 'pending'" 
+                mat-raised-button color="primary"
+                (click)="submitAssignment(assignment.id)">
+          <mat-icon>upload</mat-icon>
+          Submit Assignment
+        </button>
+        <button mat-stroked-button color="primary">
+          <mat-icon>visibility</mat-icon>
+          View Details
+        </button>
+        <button mat-stroked-button color="primary">
+          <mat-icon>download</mat-icon>
+          Download
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

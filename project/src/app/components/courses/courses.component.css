@@ -1,0 +1,251 @@
+/* Container for the Courses Page */
+.courses-page {
+  padding: var(--spacing-8); /* Applies outer spacing */
+}
+
+/* Page header containing title and optional elements */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-8); /* Space below the header */
+}
+
+.page-header div:first-child {
+  flex: 1; /* Makes the first child take full width */
+}
+
+/* Title styling */
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Subtitle or description */
+.page-header p {
+  color: var(--neutral-600);
+  font-size: 1.125rem;
+}
+
+/* Filters section (search, buttons, etc.) */
+.filters-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-8);
+  gap: var(--spacing-6);
+}
+
+/* Search input area */
+.search-field {
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Filter buttons group */
+.filter-buttons {
+  display: flex;
+  gap: var(--spacing-2); /* Space between buttons */
+}
+
+/* Grid layout for course cards */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); /* Responsive card sizing */
+  gap: var(--spacing-6);
+}
+
+/* Individual course card */
+.course-card {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for course card */
+.course-card:hover {
+  transform: translateY(-8px); /* Lift up */
+  box-shadow: var(--shadow-lg); /* Adds shadow */
+}
+
+/* Course card image section */
+.course-image {
+  height: 120px;
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+}
+
+/* Overlay on image */
+.course-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1); /* Light overlay */
+}
+
+/* Icon/text over image */
+.course-subject {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Padding inside card */
+.course-content {
+  padding: var(--spacing-6);
+}
+
+/* Top section of card: title + menu */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-4);
+}
+
+.course-header h3 {
+  font-size: 1.25rem;
+  color: var(--neutral-800);
+  line-height: 1.3;
+}
+
+/* Dropdown/menu button */
+.course-menu {
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+  color: var(--neutral-400);
+  transition: background-color 0.2s;
+}
+
+.course-menu:hover {
+  background-color: var(--neutral-100);
+}
+
+/* Description text */
+.course-description {
+  color: var(--neutral-600);
+  margin-bottom: var(--spacing-4);
+  line-height: 1.5;
+}
+
+/* Instructor info */
+.course-instructor {
+  margin-bottom: var(--spacing-5);
+  font-size: 0.875rem;
+}
+
+.instructor-label {
+  color: var(--neutral-500);
+}
+
+.instructor-name {
+  color: var(--neutral-700);
+  font-weight: 500;
+  margin-left: var(--spacing-1);
+}
+
+/* Stats (e.g., lessons, duration) */
+.course-stats {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+}
+
+.stat-icon {
+  font-size: 1rem;
+}
+
+/* Progress bar container */
+.progress-section {
+  margin-bottom: var(--spacing-6);
+}
+
+/* Top of progress bar with label + value */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  font-weight: 500;
+}
+
+.progress-value {
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+  font-weight: 600;
+}
+
+/* Bar background */
+.progress-bar {
+  height: 6px;
+  background-color: var(--neutral-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Bar fill progress */
+.progress-fill {
+  height: 100%;
+  transition: width 0.8s ease-out;
+  border-radius: var(--radius-md);
+}
+
+/* Action buttons like Enroll, View */
+.course-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.course-actions button {
+  flex: 1;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .courses-page {
+    padding: var(--spacing-4);
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: flex-start;
+  }
+
+  .filters-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-4);
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr; /* Single column on small devices */
+  }
+
+  .course-actions {
+    flex-direction: column;
+  }
+
+  .course-actions button {
+    flex: none;
+  }
+}

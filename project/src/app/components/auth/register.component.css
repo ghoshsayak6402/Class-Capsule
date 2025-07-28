@@ -1,0 +1,129 @@
+/* Main container for the authentication page */
+.auth-container {
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  padding: var(--spacing-4); /* Responsive padding around the container */
+}
+
+/* Card wrapper for login/register form */
+.auth-card {
+  width: 100%;
+  max-width: 400px; /* Limit max width for larger screens */
+  padding: var(--spacing-6); /* Inner spacing */
+}
+
+/* Header section of the auth card (logo and heading) */
+.auth-header {
+  text-align: center; /* Center-align header content */
+  margin-bottom: var(--spacing-6); /* Space below header */
+}
+
+/* Logo container (icon + text) */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3); /* Space between icon and text */
+  margin-bottom: var(--spacing-4);
+}
+
+/* Icon inside the logo */
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  border-radius: var(--radius-lg); /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Logo text next to the icon */
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-800); /* Dark gray color */
+}
+
+/* Main heading of the auth form */
+.auth-header h2 {
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Subtitle or instruction text */
+.auth-header p {
+  color: var(--neutral-600); /* Light gray */
+  margin: 0;
+}
+
+/* Utility class for full-width inputs/buttons */
+.full-width {
+  width: 100%;
+  margin-bottom: var(--spacing-4); /* Space between elements */
+}
+
+/* Auth action button styling */
+.auth-button {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--spacing-4); /* Space above button */
+}
+
+/* Footer section (e.g., for links or copyright) */
+.auth-footer {
+  text-align: center;
+  width: 100%;
+}
+
+/* Footer text styling */
+.auth-footer p {
+  margin: 0;
+  color: var(--neutral-600);
+}
+
+/* Spinner icon styling (used inside buttons, usually) */
+mat-spinner {
+  margin-right: var(--spacing-2); /* Space between spinner and text */
+}
+
+/* Role selection option container */
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3); /* Space between icon and info */
+  padding: var(--spacing-2) 0; /* Vertical padding */
+}
+
+/* Icon in each role option */
+.role-icon {
+  font-size: 1.5rem;
+  width: 32px; /* Fixed width for alignment */
+  text-align: center;
+}
+
+/* Container for title and description of a role */
+.role-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Role name/title text */
+.role-title {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Short description for the role */
+.role-description {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  margin-top: 2px; /* Slight space from title */
+}

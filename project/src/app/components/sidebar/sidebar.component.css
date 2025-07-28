@@ -1,0 +1,209 @@
+/* === Sidebar Container === */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid var(--neutral-200);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+/* === Sidebar Header (Logo + Theme Toggle) === */
+.sidebar-header {
+  padding: var(--spacing-6);
+  border-bottom: 1px solid var(--neutral-100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+/* === Theme Toggle Switch === */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle mat-slide-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+/* === Sidebar Scrollable Content === */
+.sidebar-content {
+  flex: 1;
+  padding: var(--spacing-6);
+  overflow-y: auto;
+}
+
+/* === Navigation Section === */
+.nav-section {
+  margin-bottom: var(--spacing-8);
+}
+
+.nav-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--neutral-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-4);
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-item {
+  margin-bottom: var(--spacing-2);
+}
+
+/* === Navigation Links === */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-lg);
+  color: var(--neutral-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover & Active States */
+.nav-link:hover {
+  background-color: var(--primary-50);
+  color: var(--primary-600);
+  transform: translateX(4px);
+}
+
+.nav-link.active {
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+}
+
+/* Navigation Icon */
+.nav-icon {
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}
+
+/* === Sidebar Footer (User Info + Logout) === */
+.sidebar-footer {
+  padding: var(--spacing-6);
+  border-top: 1px solid var(--neutral-100);
+}
+
+/* User Profile Block */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-3);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.user-profile:hover {
+  background-color: var(--neutral-50);
+}
+
+.user-info {
+  flex: 1;
+  margin-left: var(--spacing-3);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+.user-role {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+.logout-btn {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.logout-btn:hover {
+  opacity: 1;
+}
+
+/* === Mobile Sidebar Behavior === */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+/* === Profile Switcher Section === */
+.profile-switcher {
+  padding: var(--spacing-6);
+  border-top: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+.profile-select {
+  width: 100%;
+}
+
+.profile-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.profile-icon {
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}

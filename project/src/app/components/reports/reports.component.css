@@ -1,0 +1,494 @@
+/* Overall padding for the reports page */
+.reports-page {
+  padding: var(--spacing-8);
+}
+
+/* Header section styling */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-8);
+}
+
+/* Title styling inside header */
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Subtitle/description inside header */
+.page-header p {
+  color: var(--neutral-600);
+  font-size: 1.125rem;
+}
+
+/* Action buttons in header */
+.header-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+/* Filters bar styling */
+.reports-filters {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+  padding: var(--spacing-4);
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Reports overview section */
+.reports-overview {
+  margin-bottom: var(--spacing-8);
+}
+
+/* Grid layout for overview cards */
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-6);
+}
+
+/* Single overview card styling */
+.overview-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-6) !important;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for overview cards */
+.overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Icon in overview card */
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: var(--spacing-4);
+}
+
+/* Background color based on category */
+.card-icon.students { background: var(--accent-100); }
+.card-icon.courses { background: var(--primary-100); }
+.card-icon.assignments { background: var(--secondary-100); }
+.card-icon.performance { background: var(--warning-100); }
+
+/* Overview card title */
+.card-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+  margin-bottom: var(--spacing-1);
+}
+
+/* Description text inside overview card */
+.card-content p {
+  color: var(--neutral-600);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Trend badge styles */
+.trend {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Color variations of trend badges */
+.trend.positive {
+  background: var(--accent-100);
+  color: var(--accent-700);
+}
+
+.trend.negative {
+  background: var(--error-100);
+  color: var(--error-700);
+}
+
+.trend.neutral {
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+}
+
+/* Grid layout for chart & table content */
+.reports-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+/* Section for charts */
+.charts-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* Chart container card */
+.chart-card {
+  padding: var(--spacing-6) !important;
+}
+
+/* Placeholder area for charts */
+.chart-placeholder {
+  height: 300px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: var(--spacing-4);
+}
+
+/* Bars in the chart */
+.chart-bars {
+  display: flex;
+  align-items: end;
+  gap: var(--spacing-4);
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* Single chart bar */
+.bar {
+  background: linear-gradient(to top, var(--primary-500), var(--primary-300));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for bar */
+.bar:hover {
+  transform: scale(1.05);
+}
+
+/* Value label above bar */
+.bar-value {
+  position: absolute;
+  top: -25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+/* Label below the bar */
+.bar-label {
+  position: absolute;
+  bottom: -25px;
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+}
+
+/* Progress chart layout */
+.progress-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Individual progress item */
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* Title and value of progress */
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Name of the course in progress */
+.course-name {
+  font-weight: 500;
+  color: var(--neutral-700);
+}
+
+/* Value/percentage of progress */
+.progress-value {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Outer progress bar background */
+.progress-bar {
+  height: 8px;
+  background: var(--neutral-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Smaller progress bar variation */
+.progress-bar.small {
+  height: 6px;
+  width: 80px;
+}
+
+/* Filled portion of progress bar */
+.progress-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: var(--radius-md);
+}
+
+/* Section for tables */
+.tables-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* Card containing a table */
+.table-card {
+  padding: var(--spacing-6) !important;
+}
+
+/* Students table styling */
+.students-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+/* Table headers layout */
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3);
+  background: var(--neutral-50);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+/* Table row layout */
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3);
+  align-items: center;
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+/* Student info layout */
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* Avatar image */
+.student-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Student name styling */
+.student-name {
+  font-weight: 500;
+  color: var(--neutral-800);
+}
+
+/* Course name text */
+.student-course {
+  color: var(--neutral-600);
+}
+
+/* Grade badge */
+.student-grade {
+  font-weight: 600;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Grade variations */
+.student-grade.excellent {
+  background: var(--accent-100);
+  color: var(--accent-700);
+}
+
+.student-grade.good {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.student-grade.average {
+  background: var(--warning-100);
+  color: var(--warning-700);
+}
+
+/* Progress bar with text */
+.student-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+/* List of activities */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Single activity item */
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.2s;
+}
+
+/* Hover effect for activity */
+.activity-item:hover {
+  background: var(--neutral-50);
+}
+
+/* Icon of activity */
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Activity type color coding */
+.activity-icon.submission {
+  background: var(--primary-500);
+}
+
+.activity-icon.grade {
+  background: var(--accent-500);
+}
+
+.activity-icon.assignment {
+  background: var(--warning-500);
+}
+
+/* Details text of activity */
+.activity-details {
+  flex: 1;
+}
+
+/* Activity title */
+.activity-details h4 {
+  margin-bottom: var(--spacing-1);
+  color: var(--neutral-800);
+}
+
+/* Activity description */
+.activity-details p {
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-1);
+}
+
+/* Timestamp of activity */
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+}
+
+/* Status label for activity */
+.activity-status {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Status variations */
+.activity-status.completed {
+  background: var(--accent-100);
+  color: var(--accent-700);
+}
+
+.activity-status.pending {
+  background: var(--warning-100);
+  color: var(--warning-700);
+}
+
+.activity-status.graded {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+/* Export section at the bottom */
+.export-section {
+  margin-top: var(--spacing-8);
+}
+
+/* Export options container */
+.export-card {
+  padding: var(--spacing-6) !important;
+}
+
+.export-options {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .reports-page {
+    padding: var(--spacing-4);
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: flex-start;
+  }
+
+  .reports-filters {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .overview-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reports-content {
+    grid-template-columns: 1fr;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+  }
+
+  .export-options {
+    flex-direction: column;
+  }
+}
